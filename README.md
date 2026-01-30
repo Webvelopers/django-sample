@@ -304,3 +304,62 @@ STATICFILES_DIRS = [
 
 </html>
 ```
+
+### Create JavaScript
+
+```bash
+mkdir myproject/myproject/static/js
+touch myproject/myproject/static/js/main.js
+```
+
+``myproject/myproject/static/js/main.js``:
+
+```js
+console.log('This is a JavaScript loads on page');
+```
+
+``myproject/myproject/templates/home.html``:
+
+```html
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <p>Check out my <a href="/about">About</a> page.</p>
+</body>
+
+</html>
+```
+
+``myproject/myproject/templates/about.html``:
+
+```html
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body>
+    <h1>About Us</h1>
+    <p>Go back to my <a href="/">Home</a> page.</p>
+</body>
+
+</html>
+```
