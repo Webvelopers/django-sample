@@ -1,5 +1,7 @@
 # Django Sample
 
+## Firebase Studio Requirements
+
 .idx/dev.nix:
 
 ```py
@@ -31,4 +33,21 @@
     };
   };
 }
+```
+
+## Django Requirements
+
+### Python Version
+
+```bash
+python --version
+
+Python 3.11.10
+```
+
+### Virtual Environment Install
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
 ```
