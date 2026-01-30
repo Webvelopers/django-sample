@@ -64,4 +64,7 @@ TIME_ZONE = 'America/Guayaquil'
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    'myproject/myproject/static',
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

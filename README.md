@@ -2,7 +2,7 @@
 
 ## Firebase Studio Requirements
 
-.idx/dev.nix:
+``.idx/dev.nix``:
 
 ```py
 { pkgs, ... }: {
@@ -92,7 +92,7 @@ touch devserver.sh
 chmod 777 devserver.sh
 ```
 
-devserver.sh:
+``devserver.sh``:
 
 ```sh
 #!/bin/sh
@@ -110,7 +110,7 @@ python myproject/manage.py runserver $PORT
 touch myproject/myproject/views.py
 ```
 
-myproject/myproject/views.py:
+``myproject/myproject/views.py``:
 
 ```py
 from django.http import HttpResponse
@@ -124,7 +124,7 @@ def about(request):
 
 ### Create Routes
 
-myproject/myproject/urls.py:
+``myproject/myproject/urls.py``:
 
 ```py
 from django.contrib import admin
@@ -147,7 +147,7 @@ touch myproject/myproject/templates/home.html
 touch myproject/myproject/templates/about.html
 ```
 
-myproject/myproject/templates/home.html:
+``myproject/myproject/templates/home.html``:
 
 ```html
 <!DOCTYPE html>
@@ -167,7 +167,7 @@ myproject/myproject/templates/home.html:
 </html>
 ```
 
-myproject/myproject/templates/about.html:
+``myproject/myproject/templates/about.html``:
 
 ```html
 <!DOCTYPE html>
@@ -187,7 +187,7 @@ myproject/myproject/templates/about.html:
 </html>
 ```
 
-myproject/myproject/settings.py:
+``myproject/myproject/settings.py``:
 
 ```py
 ...
@@ -201,11 +201,11 @@ TEMPLATES = [
     },
 ]
 ...
-´´´
+```
 
-myproject/myproject/views.py:
+``myproject/myproject/views.py``:
 
-´´´py
+```py
 # from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -217,4 +217,90 @@ def home(request):
 def about(request):
     # return HttpResponse("About Us")
     return render(request, 'about.html')
-´´´
+```
+
+### Create Style
+
+```bash
+mkdir myproject/myproject/static
+mkdir myproject/myproject/static/css
+touch myproject/myproject/static/css/style.css
+```
+
+``myproject/myproject/static/css/style.css``:
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    background-color: black;
+    color: whitesmoke;
+}
+
+h1,
+p {
+    text-align: center;
+}
+```
+
+``myproject/myproject/settings.py``:
+
+```py
+...
+STATICFILES_DIRS = [
+    'myproject/myproject/static',
+]
+...
+```
+
+``myproject/myproject/templates/home.html``:
+
+```html
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <p>Check out my <a href="/about">About</a> page.</p>
+</body>
+
+</html>
+```
+
+``myproject/myproject/templates/about.html``:
+
+```html
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>About Us</h1>
+    <p>Go back to my <a href="/">Home</a> page.</p>
+</body>
+
+</html>
+```
