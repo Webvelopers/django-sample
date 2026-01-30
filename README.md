@@ -103,3 +103,21 @@ python myproject/manage.py runserver $PORT
 ```bash
 ./devserver.sh
 ```
+
+### Create Views
+
+```bash
+touch myproject/myproject/views.py
+```
+
+myproject/myproject/views.py:
+
+```py
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Hello World!")
+
+def about(request):
+    return HttpResponse("About Us")
+```
