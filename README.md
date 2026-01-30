@@ -51,3 +51,9 @@ Python 3.11.10
 python -m venv .venv
 source .venv/bin/activate
 ```
+
+### pip Upgrade
+
+```bash
+python -m pip install --upgrade pip
+```
