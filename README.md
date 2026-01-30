@@ -76,3 +76,11 @@ python
 
 >>> quit()
 ```
+
+## Django Project
+
+### Create New Project
+
+```bash
+django-admin startproject myproject
+```
