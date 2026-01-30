@@ -121,3 +121,20 @@ def home(request):
 def about(request):
     return HttpResponse("About Us")
 ```
+
+### Create Routes
+
+myproject/myproject/urls.py:
+
+```py
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+]
+```
