@@ -63,3 +63,16 @@ python -m pip install --upgrade pip
 ```bash
 python -m pip install Django
 ```
+
+### Django version
+
+```bash
+python
+
+>>> import django
+>>> print(django.get_version())
+
+5.2.10
+
+>>> quit()
+```
