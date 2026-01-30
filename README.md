@@ -138,3 +138,83 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 ]
 ```
+
+### Create Templates
+
+```bash
+mkdir myproject/myproject/templates
+touch myproject/myproject/templates/home.html
+touch myproject/myproject/templates/about.html
+```
+
+myproject/myproject/templates/home.html:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <p>Check out my <a href="/about">About</a> page.</p>
+</body>
+
+</html>
+```
+
+myproject/myproject/templates/about.html:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+
+<body>
+    <h1>About Us</h1>
+    <p>Go back to my <a href="/">Home</a> page.</p>
+</body>
+
+</html>
+```
+
+myproject/myproject/settings.py:
+
+```py
+...
+TEMPLATES = [
+    {
+        ...,
+        'DIRS': [
+            'myproject/myproject/templates',
+        ],
+        ...,
+    },
+]
+...
+´´´
+
+myproject/myproject/views.py:
+
+´´´py
+# from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def home(request):
+    # return HttpResponse("Hello World!")
+    return render(request, 'home.html')
+
+def about(request):
+    # return HttpResponse("About Us")
+    return render(request, 'about.html')
+´´´
