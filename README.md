@@ -57,3 +57,9 @@ source .venv/bin/activate
 ```bash
 python -m pip install --upgrade pip
 ```
+
+### Django Install
+
+```bash
+python -m pip install Django
+```
