@@ -84,3 +84,22 @@ python
 ```bash
 django-admin startproject myproject
 ```
+
+### Run Server
+
+```bash
+touch devserver.sh
+chmod 777 devserver.sh
+```
+
+devserver.sh:
+
+```sh
+#!/bin/sh
+source .venv/bin/activate
+python myproject/manage.py runserver $PORT
+```
+
+```bash
+./devserver.sh
+```
